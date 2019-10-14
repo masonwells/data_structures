@@ -44,7 +44,6 @@ namespace data_structures_final.Controllers
             foreach (string item in myStack)
             {
                 ViewBag.MyStack += item.Replace("<p hidden>","<p>");
-                ViewBag.MyStack += item.Replace("<button hidden>", "<>");
             }
             return View("Index");
         }
@@ -75,7 +74,33 @@ namespace data_structures_final.Controllers
         //Search from the Stack
         public ActionResult Search()
         {
-            return View("Index");
+            if(myStack.Count > 0)
+            {
+                string stringSearch = "New Entry 15";
+                string Found = "Found";
+                string NotFound = "Not Found";
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                sw.Start();
+                ViewBag.Status = NotFound;
+                //loop to do all the work
+                foreach (string item in myStack)
+                {
+                    if (item.Contains(stringSearch))
+                    {
+                        sw.Stop();
+                        TimeSpan ts = sw.Elapsed;
+                        ViewBag.Status = Found;
+                        ViewBag.StopWatch = ts;
+                    }
+                    else
+                    {
+                        TimeSpan ts = sw.Elapsed;
+                        ViewBag.StopWatch = ts;
+                    }
+                }
+                sw.Stop();
+            }
+            return View("Search");
         }
     }
 }

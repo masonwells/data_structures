@@ -44,17 +44,17 @@
             </li>
         </ul>
     </div>
+
     @if (ViewBag.MyStack != null)
     {
         foreach (var sData in ViewBag.MyStack)
         {
             @Html.Raw(sData)
         }
-    }
-    else
+    } else
     {
-        <p>Their Are no Items in the Stack - Add Items to the Stack!</p>
+        <p>No Items are in the Stack</p>
     }
-   
+
 </body>
 </html> 

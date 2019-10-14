@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayQueue</title>
+</head>
+<body>
+    <div>
+        @foreach (string item in ViewBag.display)
+        {
+            <p>@item</p>
+        }
+    </div>
+</body>
+</html>

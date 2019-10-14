@@ -168,6 +168,8 @@
     <Content Include="Views\Dictionary\Index.cshtml" />
     <Content Include="Views\Queue\Index.cshtml" />
     <Content Include="Views\Stack\Index.cshtml" />
+    <Content Include="Views\Stack\Search.cshtml" />
+    <Content Include="Views\Queue\DisplayQueue.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
