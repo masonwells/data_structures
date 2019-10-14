@@ -8,7 +8,7 @@ namespace data_structures_final.Controllers
 {
     public class QueueController : Controller
     {
-        Queue<string> qDisplay = new Queue<string>();
+        static Queue<string> qDisplay = new Queue<string>();
 
         // GET: Queue
         public ActionResult Index()
@@ -25,7 +25,7 @@ namespace data_structures_final.Controllers
             return View("Index");
         }
 
-        //Adding 2000 using a for loop to push to the stack
+        //Adding 2000 using a for loop to push to the Queue
         public ActionResult AddHugeList()
         {
             qDisplay.Clear();
@@ -44,59 +44,59 @@ namespace data_structures_final.Controllers
             return View("DisplayQueue");
         }
 
-        //Delete from the stack
-        //public ActionResult Delete()
-        //{
-        //    if (myStack.Count > 0)
-        //    {
-        //        myStack.Pop();
-        //    }
-        //    else
-        //    {
-        //        return View("Index");
-        //    }
-        //    ViewBag.MyStack = myStack;
-        //    return View("Index");
-        //}
+        //Delete from the Queue
+        public ActionResult Delete()
+        {
+            if (qDisplay.Count > 0)
+            {
+                qDisplay.Dequeue();
+            }
+            else
+            {
+                return View("Index");
+            }
+            ViewBag.display = qDisplay;
+            return View("Index");
+        }
 
         //Clear from the Stack
-        //public ActionResult Clear()
-        //{
-        //    myStack.Clear();
-        //    ViewBag.MyStack = myStack;
-        //    return View("Index");
-        //}
+        public ActionResult Clear()
+        {
+            qDisplay.Clear();
+            ViewBag.display = qDisplay;
+            return View("Index");
+        }
 
-        //Search from the Stack
-        //public ActionResult Search()
-        //{
-        //    if (myStack.Count > 0)
-        //    {
-        //        string stringSearch = "New Entry 15";
-        //        string Found = "Found";
-        //        string NotFound = "Not Found";
-        //        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-        //        sw.Start();
-        //        ViewBag.Status = NotFound;
-        //        //loop to do all the work
-        //        foreach (string item in myStack)
-        //        {
-        //            if (item.Contains(stringSearch))
-        //            {
-        //                sw.Stop();
-        //                TimeSpan ts = sw.Elapsed;
-        //                ViewBag.Status = Found;
-        //                ViewBag.StopWatch = ts;
-        //            }
-        //            else
-        //            {
-        //                TimeSpan ts = sw.Elapsed;
-        //                ViewBag.StopWatch = ts;
-        //            }
-        //        }
-        //        sw.Stop();
-        //    }
-        //    return View("Search");
-        //}
+        //Search from the Queue
+        public ActionResult Search()
+        {
+            if (qDisplay.Count > 0)
+            {
+                string stringSearch = "New Entry 15";
+                string Found = "Found";
+                string NotFound = "Not Found";
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                sw.Start();
+                ViewBag.Status = NotFound;
+                //loop to do all the work
+                foreach (string item in qDisplay)
+                {
+                    if (item.Contains(stringSearch))
+                    {
+                        sw.Stop();
+                        TimeSpan ts = sw.Elapsed;
+                        ViewBag.Status = Found;
+                        ViewBag.StopWatch = ts;
+                    }
+                    else
+                    {
+                        TimeSpan ts = sw.Elapsed;
+                        ViewBag.StopWatch = ts;
+                    }
+                }
+                sw.Stop();
+            }
+            return View("Search");
+        }
     }
 }
