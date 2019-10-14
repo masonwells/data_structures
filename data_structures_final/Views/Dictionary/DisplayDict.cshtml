@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayDict</title>
+</head>
+<body>
+    <div> 
+        @if (ViewBag.myDictionary != null)
+        {
+        @Html.Raw(ViewBag.myDictionary)
+        }
+        else
+        {
+            <p>There's nothing in the Dictionary :(</p>
+        }
+    </div>
+</body>
+</html>

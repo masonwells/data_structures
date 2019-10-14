@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -44,16 +43,22 @@
             </li>
         </ul>
     </div>
-
     @if (ViewBag.MyStack != null)
     {
         foreach (var sData in ViewBag.MyStack)
         {
             @Html.Raw(sData)
         }
-    } else
+    }
+    else if(ViewBag.Time == "Found")
     {
-        <p>No Items are in the Stack</p>
+    <p>@ViewBag.Time + in + @ViewBag.StopWatch</p>
+    }
+
+
+    else
+    {
+        <p>Add Items to the Stack!</p>
     }
 
 </body>

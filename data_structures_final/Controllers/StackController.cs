@@ -9,7 +9,8 @@ namespace data_structures_final.Controllers
     public class StackController : Controller
     {
         static Stack<string> myStack = new Stack<string>();
-        static Stack<string> tempStack = new Stack<string>();
+        
+        
 
         // GET: Stack
         public ActionResult Index()
@@ -43,62 +44,67 @@ namespace data_structures_final.Controllers
         {
             foreach (string item in myStack)
             {
-                ViewBag.MyStack += item.Replace("<p hidden>","<p>");
+                ViewBag.MyStack += item.Replace("<p hidden>", "<p>");
+                ViewBag.MyStack += item.Replace("<button hidden>", "<>");
             }
             return View("Index");
         }
 
         //Delete from the stack
-       public ActionResult Delete()
+        public ActionResult Delete()
         {
             if (myStack.Count > 0)
             {
                 myStack.Pop();
-            } 
+                ViewBag.MyStack = myStack;
+            }
             else
             {
-                return View("Index");
+                ViewBag.MyStack = " <p>Add Items to the Stack!</p>";
             }
-            ViewBag.MyStack = myStack;
-            return View("Index");
+        
+
+        return View("Index");
         }
 
         //Clear from the Stack
         public ActionResult Clear()
         {
             myStack.Clear();
-            ViewBag.MyStack = myStack;
+            ViewBag.MyStack = "<p>Add Items to the Stack!</p>";
             return View("Index");
         }
 
         //Search from the Stack
         public ActionResult Search()
         {
-            if(myStack.Count > 0)
+            if (myStack.Count > 0)
             {
-                string stringSearch = "New Entry 15";
+                string FindMe = "New Entry 15";
                 string Found = "Found";
                 string NotFound = "Not Found";
+                ViewBag.Time = NotFound;
                 System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+
                 sw.Start();
-                ViewBag.Status = NotFound;
-                //loop to do all the work
-                foreach (string item in myStack)
+                foreach(string item in myStack)
                 {
-                    if (item.Contains(stringSearch))
+                    if (item.Contains(FindMe))
                     {
                         sw.Stop();
                         TimeSpan ts = sw.Elapsed;
-                        ViewBag.Status = Found;
                         ViewBag.StopWatch = ts;
+                        ViewBag.Time = Found;
                     }
                     else
                     {
                         TimeSpan ts = sw.Elapsed;
                         ViewBag.StopWatch = ts;
                     }
-                }
+
+                } 
                 sw.Stop();
+
             }
             return View("Search");
         }

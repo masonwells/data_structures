@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -8,10 +7,42 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-    <div> 
+    <div>
+        <ul>
+            <li>
+                <a href="@Url.Action("AddOne", "Dictionary")"
+                   class="w3-bar-item w3-button">Add One Item to Dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddHugeList", "Dictionary")"
+                   class="w3-bar-item w3-button">Add Huge List of Items to Dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Display", "Dictionary")"
+                   class="w3-bar-item w3-button">Display Dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Delete", "Dictionary")"
+                   class="w3-bar-item w3-button">Delete From Dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Clear", "Dictionary")"
+                   class="w3-bar-item w3-button">Clear Dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Search", "Dictionary")"
+                   class="w3-bar-item w3-button">Search Dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Home")"
+                   class="w3-bar-item w3-button">Return to Main Menu</a>
+            </li>
+        </ul>
     </div>
+
 </body>
-</html>
+</html> 
