@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="@Url.Action("AddOne", "Stack")"
+                   class="w3-bar-item w3-button">Add One Item to Stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddHugeList", "Stack")"
+                   class="w3-bar-item w3-button">Add Huge List of Items to Stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Display", "Stack")"
+                   class="w3-bar-item w3-button">Display Stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Delete", "Stack")"
+                   class="w3-bar-item w3-button">Delete From Stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Clear", "Stack")"
+                   class="w3-bar-item w3-button">Clear Stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Search", "Stack")"
+                   class="w3-bar-item w3-button">Search Stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Home")"
+                   class="w3-bar-item w3-button">Return to Main Menu</a>
+            </li>
+        </ul>
+    </div>
+    @if (ViewBag.MyStack != null)
+    {
+        foreach (var sData in ViewBag.MyStack)
+        {
+            @Html.Raw(sData)
+        }
+    }
+    else if(ViewBag.Time == "Found")
+    {
+    <p>@ViewBag.Time + in + @ViewBag.StopWatch</p>
+    }
+
+
+    else
+    {
+        <p>Add Items to the Stack!</p>
+    }
+
+</body>
+</html> 
