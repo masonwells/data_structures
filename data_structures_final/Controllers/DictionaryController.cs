@@ -6,18 +6,12 @@ using System.Web.Mvc;
 
 namespace data_structures_final.Controllers
 {
-    public class HomeController : Controller
+    public class DictionaryController : Controller
     {
-        // GET: Home
+        // GET: Dictionary
         public ActionResult Index()
         {
             return View();
-
         }
-            public ActionResult Exit()
-            {
-                return Redirect("https://www.byu.edu/");
-            
-            }
     }
 }
